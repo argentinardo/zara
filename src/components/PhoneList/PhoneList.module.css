@@ -1,0 +1,4 @@
+.phone-list {
+    display: grid;
+    grid-column: var(--grid-columns);
+}

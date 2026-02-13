@@ -1,4 +1,4 @@
-import PhoneList from "./components/PhoneList"
+import PhoneList from '@/components/PhoneList'
 
 function App() {
   return (

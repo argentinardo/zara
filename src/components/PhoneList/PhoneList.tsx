@@ -14,7 +14,7 @@ const PhoneList = () => {
     return (
         <>
             {list.map((phone: PhoneListItem) => (
-                <ul key={phone.id}>
+                <ul role='list' key={phone.id}>
                     <li>{phone.name}</li>
                     <li>{phone.basePrice}</li>
                     <li>{phone.brand}</li>

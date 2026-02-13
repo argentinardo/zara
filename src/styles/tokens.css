@@ -1,0 +1,26 @@
+:root {
+    /* FONTS */
+        --font-main-family: Helvetica, Arial, sans-serif;
+        --font-main-size: 0.9375rem;
+    
+    /* COLORS */
+        --color-main-900: #000;
+        --color-main-600: #79736D;
+        --color-main-300: #AAA;
+        --color-disabled: #C2BFBC;
+        --color-unselected: #CCCC;
+        --color-delete: #DF0000;
+        --color-background: #FFF;
+    
+    /* SPACING */
+        --spacing-01: 0.25rem; /* 4px */
+        --spacing-02: 0.5rem; /* 8px */
+        --spacing-03: 0.75rem; /* 12px */
+        --spacing-04: 1rem; /* 16px */
+        --spacing-05: 1.25rem; /* 20px */ 
+        --spacing-06: 1.5rem; /* 24px */
+    
+    /* GRID */
+        --grid-columns : 5;
+        --grid-gap: var(--spacing-04);
+} 
