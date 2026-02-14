@@ -42,3 +42,13 @@ export interface Phone {
   storageOptions: StorageOption[]
   similarProducts: SimilarProduct[]
 }
+
+export interface CartItem {
+  id: string
+  brand: string
+  name: string
+  price: number
+  storage: string
+  color: string
+}
+
