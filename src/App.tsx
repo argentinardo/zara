@@ -1,11 +1,10 @@
-import PhoneList from '@/components/PhoneList'
+import { CartProvider } from '@/context/CartContext'
 
 function App() {
   return (
-    <div>
+    <CartProvider>
       <h1>Zara</h1>
-      <PhoneList />
-    </div>
+    </CartProvider>
   )
 }
 
