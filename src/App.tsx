@@ -1,15 +1,11 @@
-import Cart from '@/components/Cart'
 import { CartProvider } from '@/context/CartContext'
-import PhoneSpecs from './components/PhoneDetails'
-import PhoneList from './components/PhoneList'
+import AppRouter from '@/router/AppRouter'
+
 
 function App() {
   return (
     <CartProvider>
-      <h1>Zara</h1>
-      <PhoneList />
-      <PhoneSpecs />
-      <Cart />
+        <AppRouter />
     </CartProvider>
   )
 }
