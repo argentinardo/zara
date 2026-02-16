@@ -1,1 +1,1 @@
-export { httpClient, ApiError, type HttpClientConfig } from './client'
+export { httpClient } from './client'
