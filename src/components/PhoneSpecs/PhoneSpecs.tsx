@@ -1,41 +1,194 @@
+import { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import type { Phone } from '@/types'
+import { productsService } from '@/services'
+import { CartContext } from '@/context/CartContext'
+
+const defaultPhone: Phone = {
+  id: '',
+  brand: '',
+  name: '',
+  description: '',
+  basePrice: 0,
+  rating: 0,
+  specs: {
+    screen: '',
+    resolution: '',
+    processor: '',
+    mainCamera: '',
+    selfieCamera: '',
+    battery: '',
+    os: '',
+    screenRefreshRate: '',
+  },
+  colorOptions: [],
+  storageOptions: [],
+  similarProducts: [],
+}
+
 interface PhoneSpecsProps {
-    id: string
+  id: string
 }
 
 const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
-    return (
-        <div className="phoneSpecs">
-            <div className="phoneSpecs__hero">
-                <div className="phoneSpecs__hero-img">
+  const { addToCart } = useContext(CartContext)
+  const navigate = useNavigate()
 
-                </div>
-                <div className="phoneSpecs__hero-panel">
-                    <div className="phoneSpecs__hero-title">{id}</div>
-                    <div className="phoneSpecs__hero-subtilte"></div>
-                    <div className="phoneSpecs__hero-storage">
-                        <div className="phoneSpecs__hero-storage-text"></div>
-                        <ul role="list" className="phoneSpecs__hero-storage-tabs">
-                            <li className="phoneSpecs__hero-storage-tab"><button></button></li>
-                            <li className="phoneSpecs__hero-storage-tab"><button></button></li>
-                            <li className="phoneSpecs__hero-storage-tab"><button></button></li>
-                        </ul>
-                    </div>
-                    <div className="phoneSpecs__hero-color">
-                        <div className="phoneSpecs__hero-color-text"></div>
-                        <ul role="list" className="phoneSpecs__hero-color-tabs">
-                            <li className="phoneSpecs__hero-color-tab"><button></button></li>
-                            <li className="phoneSpecs__hero-color-tab"><button></button></li>
-                            <li className="phoneSpecs__hero-color-tab"><button></button></li>
-                        </ul>
-                    </div>
-                    <button className="phoneSpecs__hero-add">
-                        añadir
-                    </button>
-                </div>
+  const [specsData, setSpecsData] = useState<Phone>(defaultPhone)
+  const [colorUrl, setColorUrl] = useState('')
+  const [selectedColor, setSelectedColor] = useState('')
+  const [storagePrice, setStoragePrice] = useState(0)
+  const [selectedStorage, setSelectedStorage] = useState('')
+
+  useEffect(() => {
+    productsService.getProductById(id).then((data) => {
+      if (data) {
+        setSpecsData(data)
+          const first = data.colorOptions[0]
+          setColorUrl(first.imageUrl)
+          setSelectedColor(first.name)
+      }
+    })
+  }, [id])
+
+  const handleColor = (imageUrl: string, colorName: string) => {
+    setColorUrl(imageUrl)
+    setSelectedColor(colorName)
+  }
+
+  const handleStorage = (price: number, capacity: string) => {
+    setStoragePrice(price)
+    setSelectedStorage(capacity)
+  }
+
+  const handleAddToCart = () => {
+    addToCart({
+      cartItemId:"",
+      brand: specsData.brand,
+      name: specsData.name,
+      price :storagePrice,
+      storage: selectedStorage,
+      color: selectedColor,
+      colorUrl: colorUrl,
+    })
+    navigate('/cart')
+  }
+
+  const {
+    name,
+    brand,
+    description,
+    basePrice,
+    specs: {
+      screen,
+      resolution,
+      processor,
+      mainCamera,
+      selfieCamera,
+      battery,
+      os,
+      screenRefreshRate,
+    },
+    colorOptions,
+    storageOptions,
+  } = specsData
+
+  const displayedImageUrl = colorUrl || colorOptions[0]?.imageUrl || ''
+
+  return (
+    <div className="phoneSpecs">
+      <div className="phoneSpecs__hero">
+        <img className="phoneSpecs__hero-img" src={displayedImageUrl} alt={name} />
+        <div className="phoneSpecs__hero-panel">
+          <div className="phoneSpecs__hero-title">{name}</div>
+          <div className="phoneSpecs__hero-subtilte">
+            {storagePrice ? storagePrice : `From ${basePrice}`} EUR
+          </div>
+          <div className="phoneSpecs__hero-storage">
+            <div className="phoneSpecs__hero-storage-text">
+              Storage ¿hOW MUCH SPACE DO YOU NEED?
             </div>
-
+            <ul role="list" className="phoneSpecs__hero-storage-tabs">
+              {storageOptions.map((item) => (
+                <li key={item.capacity} className="phoneSpecs__hero-storage-tab">
+                  <button onClick={() => handleStorage(item.price, item.capacity)}>
+                    {item.capacity}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="phoneSpecs__hero-color">
+            <div className="phoneSpecs__hero-color-text">color. pick your favourite.</div>
+            <ul role="list" className="phoneSpecs__hero-color-tabs">
+              {colorOptions.map((item) => (
+                <li key={item.name} className="phoneSpecs__hero-color-tab">
+                  <button
+                    style={{ backgroundColor: item.hexCode }}
+                    onClick={() => handleColor(item.imageUrl, item.name)}
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <button type="button" className="phoneSpecs__hero-add" onClick={handleAddToCart}>
+            añadir
+          </button>
         </div>
-
-    )
+      </div>
+      <div className="phone-specs__details">
+        <div className="phone-specs__details-title">SPECIFICATIONS</div>
+        <div className="phone-specs__details-list">
+          <div className="phone-specs__details-list-item">
+            <span>BRAND</span>
+            {brand}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>NAME</span>
+            {name}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>DESCRIPTION</span>
+            {description}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>SCREEN</span>
+            {screen}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>RESOLUTION</span>
+            {resolution}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>PROCESSOR</span>
+            {processor}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>MAIN CAMERA</span>
+            {mainCamera}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>SELFIE CAMERA</span>
+            {selfieCamera}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>BATTERY</span>
+            {battery}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>OS</span>
+            {os}
+          </div>
+          <div className="phone-specs__details-list-item">
+            <span>SCREEN REFRESH RATE</span>
+            {screenRefreshRate}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
+
 export default PhoneSpecs

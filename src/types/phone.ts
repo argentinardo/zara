@@ -44,11 +44,11 @@ export interface Phone {
 }
 
 export interface CartItem {
-  id: string
   brand: string
   name: string
   price: number
   storage: string
   color: string
+  colorUrl: string
+  cartItemId: string
 }
-
