@@ -1,9 +1,3 @@
 .phone-item {
     padding: var(--spacing-04);
-    &__img {
-        border: none;
-    }
-    &__footer {
-        border: none;
-    }
 }
