@@ -1,13 +1,14 @@
 import { Outlet } from "react-router-dom";
+import MainBar from "../MainBar/MainBar";
 
 function Layout() {
   return (
-    <div>
-      <h1>Zara</h1>
+    <>
+      <MainBar />
       <main>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 
