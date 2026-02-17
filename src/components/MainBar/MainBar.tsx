@@ -4,7 +4,7 @@ import CartBadge from "../CartBadge/CartBadge"
 
 const MainBar = () => {
   return (
-    <div className="mainBar">
+    <div className="main-bar">
       <NavLink to="/" >
         <img src={logo} alt="" />
       </NavLink>

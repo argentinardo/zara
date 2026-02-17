@@ -17,16 +17,12 @@ const PhoneList = () => {
   }, [])
 
   const listUnique = list.filter(
-    (phone, index, self) => index === self.findIndex((p) => {
-      p.id === phone.id}
-    )
-    
+    (phone, index, self) => index === self.findIndex((p) => p.id === phone.id),
   )
 
   return (
     <section className="phone-list">
       <Searcher onSearch={handleSearch} resultsCount={listUnique.length} />
-
       <div className="phone-list__grid">
         {listUnique.map((phone: PhoneListItem) => (
           <PhoneItem key={phone.id} phone={phone} />
