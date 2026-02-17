@@ -4,6 +4,8 @@ import type { Phone } from '@/types'
 import { productsService } from '@/services'
 import { CartContext } from '@/context/CartContext'
 import MainButton from '../MainButton'
+import Storage from '../Storage'
+import ColorSelector from '../ColorSelector'
 
 const defaultPhone: Phone = {
   id: '',
@@ -45,9 +47,9 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
     productsService.getProductById(id).then((data) => {
       if (data) {
         setSpecsData(data)
-          const first = data.colorOptions[0]
-          setColorUrl(first.imageUrl)
-          setSelectedColor(first.name)
+        const first = data.colorOptions[0]
+        setColorUrl(first.imageUrl)
+        setSelectedColor(first.name)
       }
     })
   }, [id])
@@ -64,10 +66,10 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
 
   const handleAddToCart = () => {
     addToCart({
-      cartItemId:"",
+      cartItemId: "",
       brand: specsData.brand,
       name: specsData.name,
-      price :storagePrice,
+      price: storagePrice,
       storage: selectedStorage,
       color: selectedColor,
       colorUrl: colorUrl,
@@ -105,36 +107,15 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
           <div className="phoneSpecs__hero-subtilte">
             {storagePrice ? storagePrice : `From ${basePrice}`} EUR
           </div>
-          <div className="phoneSpecs__hero-storage">
-            <div className="phoneSpecs__hero-storage-text">
-              Storage ¿hOW MUCH SPACE DO YOU NEED?
-            </div>
-            <ul role="list" className="phoneSpecs__hero-storage-tabs">
-              {storageOptions.map((item) => (
-                <li key={item.capacity} className="phoneSpecs__hero-storage-tab">
-                  <button onClick={() => handleStorage(item.price, item.capacity)}>
-                    {item.capacity}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="phoneSpecs__hero-color">
-            <div className="phoneSpecs__hero-color-text">color. pick your favourite.</div>
-            <ul role="list" className="phoneSpecs__hero-color-tabs">
-              {colorOptions.map((item) => (
-                <li key={item.name} className="phoneSpecs__hero-color-tab">
-                  <button
-                    style={{ backgroundColor: item.hexCode }}
-                    onClick={() => handleColor(item.imageUrl, item.name)}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <MainButton light action={handleAddToCart}>Añadir</MainButton>
+          <Storage
+            storageOptions={storageOptions}
+            onSelectStorage={handleStorage}
+          />
+          <ColorSelector
+            action={handleColor}
+            colorOption={colorOptions}
+          />
+          <MainButton action={handleAddToCart}>Añadir</MainButton>
         </div>
       </div>
       <div className="phone-specs__details">
