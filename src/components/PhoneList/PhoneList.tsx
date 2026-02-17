@@ -5,6 +5,7 @@ import Searcher from '@/components/Searcher/Searcher'
 import PhoneItem from '../PhoneItem'
 
 const PhoneList = () => {
+  const MAX_PHONES = 20
   const [list, setList] = useState<PhoneListItem[]>([])
 
   useEffect(() => {
@@ -20,11 +21,13 @@ const PhoneList = () => {
     (phone, index, self) => index === self.findIndex((p) => p.id === phone.id),
   )
 
+  const visiblePhones = listUnique.slice(0, MAX_PHONES)
+
   return (
     <section className="phone-list">
-      <Searcher onSearch={handleSearch} resultsCount={listUnique.length} />
+      <Searcher onSearch={handleSearch} resultsCount={visiblePhones.length} />
       <div className="phone-list__grid">
-        {listUnique.map((phone: PhoneListItem) => (
+        {visiblePhones.map((phone: PhoneListItem) => (
           <PhoneItem key={phone.id} phone={phone} />
         ))}
       </div>
