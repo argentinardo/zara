@@ -1,0 +1,24 @@
+.searcher {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02);
+}
+
+.searcher__input {
+  max-width: 24rem;
+  padding: var(--spacing-02) var(--spacing-03);
+  font: inherit;
+  border: 1px solid var(--color-main-300);
+  border-radius: 4px;
+}
+
+.searcher__input:focus-visible {
+  outline: 2px solid var(--color-main-900);
+  outline-offset: 2px;
+}
+
+.searcher__count {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-main-600);
+}

@@ -1,4 +1,5 @@
 @import '../components/Layout/Layout.module.css';
 @import '../components/PhoneList/PhoneList.module.css';
+@import '../components/Searcher/Searcher.module.css';
 @import '../components/PhoneItem/PhoneItem.module.css';
 @import '../components/Cart/Cart.module.css';

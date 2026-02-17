@@ -4,8 +4,12 @@ import type { Phone, PhoneListItem } from '@/types'
 const PRODUCTS_ENDPOINT = '/products'
 
 export const productsService = {
-  async getProducts(): Promise<PhoneListItem[]> {
-    return httpClient.get<PhoneListItem[]>(PRODUCTS_ENDPOINT)
+  async getProducts(search?: string): Promise<PhoneListItem[]> {
+    const query = search?.trim()
+    const url = query
+      ? `${PRODUCTS_ENDPOINT}?search=${encodeURIComponent(query)}`
+      : PRODUCTS_ENDPOINT
+    return httpClient.get<PhoneListItem[]>(url)
   },
 
   async getProductById(id: string): Promise<Phone | null> {
