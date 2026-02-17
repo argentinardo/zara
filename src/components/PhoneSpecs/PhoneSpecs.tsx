@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import type { Phone } from '@/types'
 import { productsService } from '@/services'
 import { CartContext } from '@/context/CartContext'
+import MainButton from '../MainButton'
 
 const defaultPhone: Phone = {
   id: '',
@@ -133,9 +134,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
               ))}
             </ul>
           </div>
-          <button type="button" className="phoneSpecs__hero-add" onClick={handleAddToCart}>
-            añadir
-          </button>
+          <MainButton light action={handleAddToCart}>Añadir</MainButton>
         </div>
       </div>
       <div className="phone-specs__details">
