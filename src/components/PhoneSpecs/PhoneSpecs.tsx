@@ -101,12 +101,12 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
   const displayedImageUrl = colorUrl || colorOptions[0]?.imageUrl || ''
 
   return (
-    <div className="phoneSpecs">
-      <div className="phoneSpecs__hero">
-        <img className="phoneSpecs__hero-img" src={displayedImageUrl} alt={name} />
-        <div className="phoneSpecs__hero-panel">
-          <div className="phoneSpecs__hero-title">{name}</div>
-          <div className="phoneSpecs__hero-subtilte">
+    <div className="phone-specs">
+      <div className="phone-specs__hero">
+        <img className="phone-specs__hero-img" src={displayedImageUrl} alt={name} />
+        <div className="phone-specs__hero-panel">
+          <div className="phone-specs__hero-title">{name}</div>
+          <div className="phone-specs__hero-subtitle">
             {storagePrice ? storagePrice : `From ${basePrice}`} EUR
           </div>
           <Storage
@@ -116,6 +116,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
           <ColorSelector
             action={handleColor}
             colorOption={colorOptions}
+            selectedColor={selectedColor}
           />
           <MainButton full light action={handleAddToCart}>Añadir</MainButton>
         </div>

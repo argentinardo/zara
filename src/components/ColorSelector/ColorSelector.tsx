@@ -1,28 +1,28 @@
 import {ColorOption} from '@/types/phone'
-import styles from './ColorSelector.module.css'
 
 interface ColorSelectorProps {
     colorOption : ColorOption[],
-    action: (imageUrl: string, name: string) => void
+    action: (imageUrl: string, name: string) => void,
+    selectedColor: string,
 }
 
-const ColorSelector = ({colorOption, action} : ColorSelectorProps) => {
+const ColorSelector = ({colorOption, action, selectedColor=""} : ColorSelectorProps) => {
   return (
-    <div className={styles['color-selector']}>
+    <div className="color-selector">
         <div className="color-selector__text">color. pick your favourite.</div>
         <ul role="list" className="color-selector__tabs">
             {colorOption.map((item) => (
-            <li key={item.name}>
+            <li className='color-selector__tabs-tab' key={item.name}>
                 <button
-                className='color-selector__tabs-tab'
+                className='color-selector__tabs-btn'
                 style={{ backgroundColor: item.hexCode }}
                 onClick={() => action(item.imageUrl, item.name)}
                 >
                 </button>
-                <p className="color-selector__name">{item.name}</p>
             </li>
             ))}
         </ul>
+        <p className="color-selector__name">{selectedColor}</p>
     </div>
   )
 }
