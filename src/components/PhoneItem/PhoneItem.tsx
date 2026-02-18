@@ -10,14 +10,9 @@ const PhoneItem = ({ phone }: PhoneItemProps) => {
   return (
     <NavLink className="phone-item" to={`/products/${id}`}>
       <img className="phone-item__img" src={imageUrl} alt={`${brand} ${name}`} />
+      <h3 className="phone-item__brand">{brand}</h3>
       <div className="phone-item__footer">
-          <div className="phone-item__footer-model">
-              <h3>{brand}</h3>
-              <h1>{name}</h1>
-          </div>
-          <div className="phone-item__footer-price">
-              {basePrice}
-          </div>
+          <span className="phone-item__name">{name}</span>{basePrice} EUR
       </div>
     </NavLink>
   )

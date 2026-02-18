@@ -1,3 +1,67 @@
 .phone-item {
+    position: relative;
     padding: var(--spacing-04);
+    border: 1px solid var(--color-main-900);
+    width: 344px;
+    height: auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-main-900);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--color-main-900);
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+        z-index: 0;
+    }
+
+    &:hover::before {
+        transform: translateY(0);
+    }
+
+    &:hover {
+        color: var(--color-background);
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .phone-item__img {
+        width: 19.5rem;
+        height: 16.0625rem;
+        margin-bottom: var(--spacing-06);
+        object-fit: contain;
+    }
+
+    .phone-item__brand {
+        font-weight: 300;
+        color: var(--color-main-600);
+        font-size: 10px;
+        margin-bottom: var(--spacing-01);
+        transition: color 0.35s ease;
+    }
+
+    &:hover .phone-item__brand,
+    &:hover .phone-item__footer {
+        transition: color 0.35s ease;
+
+        color: var(--color-background);
+    }
+
+    .phone-item__footer {
+        font-weight: 300;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        color: var(--color-main-900);
+        transition: color 0.35s ease;
+
+    }
 }
+
