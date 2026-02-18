@@ -10,18 +10,18 @@ const StorageTabs = ({ storageOptions, onSelectStorage }: StorageTabsProps) => {
             <div className="storage__text">
                 Storage ¿hOW MUCH SPACE DO YOU NEED?
             </div>
-            <ul role="list" className="storage__tabs">
+            <div className="storage__tabs">
                 {storageOptions.map((item) => (
-                    <li key={item.capacity} className="storage__tabs-tab">
-                        <button
-                            type="button"
-                            onClick={() => onSelectStorage(item.price, item.capacity)}
-                        >
-                            {item.capacity}
-                        </button>
-                    </li>
+                    <button
+                        key={item.capacity}
+                        className="storage__tabs-btn"
+                        type="button"
+                        onClick={() => onSelectStorage(item.price, item.capacity)}
+                    >
+                        {item.capacity}
+                    </button>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
