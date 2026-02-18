@@ -22,11 +22,10 @@
     }
 
     .main-bar__cart-text {
-        height: 1.125rem;
         font-size: 1rem;
         font-weight: 300;
         line-height: 1rem;
-        height: 0.0706rem;
+        height: 0.8125rem
     }
     .main-bar__footer {
         flex-basis: 100%;
