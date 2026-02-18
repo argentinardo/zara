@@ -6,6 +6,7 @@ import { CartContext } from '@/context/CartContext'
 import MainButton from '../MainButton'
 import Storage from '../Storage'
 import ColorSelector from '../ColorSelector'
+import SimilarItems from '../SimilarItems'
 
 const defaultPhone: Phone = {
   id: '',
@@ -94,6 +95,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
     },
     colorOptions,
     storageOptions,
+    similarProducts,
   } = specsData
 
   const displayedImageUrl = colorUrl || colorOptions[0]?.imageUrl || ''
@@ -167,6 +169,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
           </div>
         </div>
       </div>
+      <SimilarItems similarProducts={similarProducts} />
     </div>
   )
 }

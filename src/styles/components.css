@@ -6,4 +6,5 @@
 @import '../components/PhoneList/PhoneList.module.css';
 @import '../components/PhoneSpecs/PhoneSpecs.module.css';
 @import '../components/Searcher/Searcher.module.css';
+@import '../components/SimilarItems/SimilarItems.module.css';
 @import '../components/Storage/Storage.module.css';
