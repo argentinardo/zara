@@ -3,9 +3,8 @@ body {
     color: var(--color-main-900);
     font-family: var(--font-main-family);
     font-size: var(--font-main-size);
-    max-width: 120rem;
+    max-width: 113.75rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
     margin:auto;
-    padding-left: 6.25rem;
-    padding-right: 6.25rem;
-
 }

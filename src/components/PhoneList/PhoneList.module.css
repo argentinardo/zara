@@ -7,5 +7,5 @@
 .phone-list__grid {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), 1fr);
-  gap: var(--grid-gap);
+  width: 100%;
 }
