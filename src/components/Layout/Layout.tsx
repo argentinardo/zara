@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import MainBar from "../MainBar/MainBar";
+import MainBar from "@/components/MainBar"
 
 function Layout() {
   return (
