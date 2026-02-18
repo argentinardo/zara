@@ -117,7 +117,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
             action={handleColor}
             colorOption={colorOptions}
           />
-          <MainButton action={handleAddToCart}>Añadir</MainButton>
+          <MainButton full light action={handleAddToCart}>Añadir</MainButton>
         </div>
       </div>
       <div className="phone-specs__details">

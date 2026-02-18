@@ -13,7 +13,7 @@ const MainButton = ({ light, full, action, children }: MainButtonProps) => {
             type="button"
             onClick={action}
             className={
-                `button${light ? ' button--light' : ''}${full ? ' button--full' : ''}`
+                `main-button${light ? ' main-button--light' : ''}${full ? ' main-button--full' : ''}`
             }
         >
             {children}
