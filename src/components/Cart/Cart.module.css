@@ -1,57 +1,66 @@
 .cart {
-    .cart__title {
-        font-weight: 300;
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
-    }
     display: flex;
     flex-direction: column;
     min-height: 88vh;
-    .cart__item {
-        display: flex;
-        flex-direction: row;
-        width: 34.25rem;
-        height: 20.25rem;
-        justify-content: space-between;
-        margin-bottom: 6rem;
-    }
-    .cart__item-img {
-        width: 16.375rem;
-        height: 20.25rem;
-        object-fit: contain;
-    }
-    .cart__item-data {
-        margin-top: 2.5rem;
-        display: flex;
-        flex-direction: column;
-        text-transform: uppercase;
-        min-width: 15.375rem;
-    }
-    .cart__item-price {
-        margin-top: 1.25rem;
-    }
-    .cart__item-delete {
-        margin-top: auto;
-        border: none;
-        text-align: left;
-        cursor: pointer;
-        color: var(--color-delete);
-    }
-    .cart__footer {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: auto;
-        margin-bottom: 1.25rem;
-    }
-    .cart__footer-price {
-        margin-left: auto;
-        margin-right: 5rem;
-        text-transform: uppercase;
-    }
 }
 
+.cart__title {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.cart__item {
+    display: flex;
+    flex-direction: row;
+    width: 34.25rem;
+    height: 20.25rem;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+}
+
+.cart__item-img {
+    width: 16.375rem;
+    height: 20.25rem;
+    object-fit: contain;
+}
+
+.cart__item-data {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    min-width: 15.375rem;
+}
+
+.cart__item-price {
+    margin-top: 1.25rem;
+}
+
+.cart__item-delete {
+    margin-top: auto;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--color-delete);
+}
+
+.cart__footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 1.25rem;
+}
+
+.cart__footer-price {
+    margin-left: auto;
+    margin-right: 5rem;
+    text-transform: uppercase;
+}
+
+/* Tablet */
 @media (max-width: 1199px) {
     .cart__item {
         width: 100%;
@@ -61,6 +70,7 @@
     }
 }
 
+/* Mobile */
 @media (max-width: 767px) {
     .cart__item {
         flex-direction: column;

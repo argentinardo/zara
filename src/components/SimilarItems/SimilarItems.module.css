@@ -15,10 +15,6 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  &  > * {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  }
 }
 
 .similar-items__slider-item {
@@ -26,6 +22,8 @@
   padding-top: 1px;
   width: 21.5rem;
   padding-left: 1px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 @media (max-width: 1199px) {
