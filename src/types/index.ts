@@ -5,6 +5,7 @@ export type {
   ColorOption,
   StorageOption,
   SimilarProduct,
+  CartItem
 } from './phone'
 
 export type {
