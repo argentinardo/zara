@@ -21,13 +21,12 @@
     padding: 1px;
     margin-right: 1rem;
     margin-bottom: 0.5rem;
-}
-
-.color-selector__tabs-tab--active {
-    background-color: var(--color-black);
-}
-
-.color-selector__tabs-btn {
+    &.color-selector__tabs-tab--active {
+      background-color: var(--color-black);
+    }
+  }
+  
+  .color-selector__tabs-btn {
     cursor: pointer;
     height: 1.375rem;
     width: 1.375rem;
@@ -39,9 +38,14 @@
     text-transform: capitalize;
 }
 
-/* Tablet */
 @media (max-width: 1199px) {
     .color-selector__text {
         font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .color-selector {
+        margin-bottom: 2.5rem;
     }
 }

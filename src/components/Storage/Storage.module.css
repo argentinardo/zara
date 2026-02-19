@@ -40,14 +40,20 @@
     border: 1px solid black;
 }
 
-    /* Tablet */
-    @media (max-width: 1199px) {
-        .storage__text {
-            font-size: 0.75rem;
-        }
-
-        .storage__tabs-btn {
-            width: 5.5625rem;
-            height: 3rem;
-        }
+/* Tablet */
+@media (max-width: 1199px) {
+    .storage__text {
+        font-size: 0.75rem;
     }
+
+    .storage__tabs-btn {
+        width: 5.5625rem;
+        height: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .storage__tabs {
+        margin-bottom: 2rem;
+    }
+}

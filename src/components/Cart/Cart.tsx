@@ -36,9 +36,9 @@ const Cart = () => {
         
         {cart.length > 0 ? (
           <>
-            <p className="cart__footer-price">
-              Total &nbsp;&nbsp;&nbsp;&nbsp;{totalPrice.toFixed(2)} EUR
-            </p>
+            <div className="cart__footer-price">
+              Total <span className="cart__footer-amount">{totalPrice.toFixed(2)} EUR</span>
+            </div>
             <MainButton>pay</MainButton>
           </>
         ) : null}

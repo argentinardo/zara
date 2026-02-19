@@ -101,9 +101,13 @@
 
 /* Mobile: < 768px */
 @media (max-width: 767px) {
+    .phone-specs {
+        margin-bottom: 5rem;
+    }
     .phone-specs__hero {
         flex-direction: column;
         height: auto;
+        margin-bottom: 5rem;
     }
 
     .phone-specs__hero-title {
@@ -112,6 +116,7 @@
 
     .phone-specs__hero-subtitle {
         font-size: 0.875rem;
+        margin-bottom: 2.5rem;
     }
 
     .phone-specs__hero-img {
@@ -125,12 +130,7 @@
         height: auto;
     }
 
-    .phone-specs__details-list-item {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
     .phone-specs__details-list-first {
-        min-width: 0;
+        min-width: 40%;
     }
 }
