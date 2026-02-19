@@ -20,10 +20,11 @@ const SimilarItems = ({ similarProducts }: SimilarItemsProps) => {
       <div className="similar-items__slider">
         {items.map((product) => (
           <div
+            key={product.id}
             className="similar-items__slider-item"
-            onClick={()=>handleScroll()}
+            onClick={handleScroll}
           >
-            <PhoneItem key={product.id} phone={product} />
+            <PhoneItem phone={product} />
           </div>
         ))}
       </div>
