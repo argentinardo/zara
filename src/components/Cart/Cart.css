@@ -43,6 +43,7 @@
     text-align: left;
     cursor: pointer;
     color: var(--color-delete);
+    background-color: transparent;
 }
 
 .cart__footer {

@@ -25,8 +25,7 @@
     border-right: var(--color-unselected) solid 1px;
     cursor: pointer;
     position: relative;
-
-
+    background-color: transparent;
 }
 
 .storage__tabs-btn:hover::after,
