@@ -43,14 +43,14 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
 
   return (
     <>
-    <div className="phone-specs">
-      <div className="phone-specs__hero">
+    <article className="phone-specs">
+      <section className="phone-specs__hero">
         <img className="phone-specs__hero-img" src={displayedImageUrl} alt={name} />
         <div className="phone-specs__hero-panel">
-          <div className="phone-specs__hero-title">{name}</div>
-          <div className="phone-specs__hero-subtitle">
+          <h1 className="phone-specs__hero-title">{name}</h1>
+          <p className="phone-specs__hero-subtitle">
             {storagePrice ? storagePrice : `From ${basePrice}`} EUR
-          </div>
+          </p>
           <Storage
             storageOptions={storageOptions}
             selectedStorage={selectedStorage}
@@ -67,57 +67,57 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
             action={handleAddToCart}
           >Añadir</MainButton>
         </div>
-      </div>
-      <div className="phone-specs__details">
-        <div className="phone-specs__details-title">SPECIFICATIONS</div>
-        <div className="phone-specs__details-list">
+      </section>
+      <section className="phone-specs__details">
+        <h2 className="phone-specs__details-title">SPECIFICATIONS</h2>
+        <dl className="phone-specs__details-list">
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">BRAND</span>
-            {brand}
+            <dt className="phone-specs__details-list-first">BRAND</dt>
+            <dd>{brand}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">NAME</span>
-            {name}
+            <dt className="phone-specs__details-list-first">NAME</dt>
+            <dd>{name}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">DESCRIPTION</span>
-            {description}
+            <dt className="phone-specs__details-list-first">DESCRIPTION</dt>
+            <dd>{description}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">SCREEN</span>
-            {screen}
+            <dt className="phone-specs__details-list-first">SCREEN</dt>
+            <dd>{screen}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">RESOLUTION</span>
-            {resolution}
+            <dt className="phone-specs__details-list-first">RESOLUTION</dt>
+            <dd>{resolution}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">PROCESSOR</span>
-            {processor}
+            <dt className="phone-specs__details-list-first">PROCESSOR</dt>
+            <dd>{processor}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">MAIN CAMERA</span>
-            {mainCamera}
+            <dt className="phone-specs__details-list-first">MAIN CAMERA</dt>
+            <dd>{mainCamera}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">SELFIE CAMERA</span>
-            {selfieCamera}
+            <dt className="phone-specs__details-list-first">SELFIE CAMERA</dt>
+            <dd>{selfieCamera}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">BATTERY</span>
-            {battery}
+            <dt className="phone-specs__details-list-first">BATTERY</dt>
+            <dd>{battery}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">OS</span>
-            {os}
+            <dt className="phone-specs__details-list-first">OS</dt>
+            <dd>{os}</dd>
           </div>
           <div className="phone-specs__details-list-item">
-            <span className="phone-specs__details-list-first">SCREEN REFRESH RATE</span>
-            {screenRefreshRate}
+            <dt className="phone-specs__details-list-first">SCREEN REFRESH RATE</dt>
+            <dd>{screenRefreshRate}</dd>
           </div>
-        </div>
-      </div>
-    </div>
+        </dl>
+      </section>
+    </article>
     <SimilarItems similarProducts={similarProducts} />
   </>
   )

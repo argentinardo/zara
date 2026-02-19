@@ -8,9 +8,9 @@ interface StorageTabsProps {
 const StorageTabs = ({ storageOptions, selectedStorage, onSelectStorage }: StorageTabsProps) => {
     return (
         <div className="storage">
-            <div className="storage__text">
+            <p className="storage__text">
                 Storage ¿hOW MUCH SPACE DO YOU NEED?
-            </div>
+            </p>
             <div className="storage__tabs">
                 {storageOptions.map((item) => (
                     <button

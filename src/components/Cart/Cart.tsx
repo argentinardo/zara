@@ -31,7 +31,7 @@ const Cart = () => {
           </li>
         ))}
       </ul>
-      <div className="cart__footer">
+      <footer className="cart__footer">
         <Link to="/" className='main-button main-button--light'>Continue shopping</Link>
         
         {cart.length > 0 ? (
@@ -42,7 +42,7 @@ const Cart = () => {
             <MainButton>pay</MainButton>
           </>
         ) : null}
-      </div>
+      </footer>
     </section> 
   )
 }

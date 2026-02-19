@@ -47,6 +47,7 @@
 .phone-specs__details-title {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-08);
+    font-weight: 300;
 }
 
 .phone-specs__details-list {

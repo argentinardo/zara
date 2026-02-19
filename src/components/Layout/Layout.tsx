@@ -4,7 +4,9 @@ import MainBar from "@/components/MainBar"
 function Layout() {
   return (
     <>
-      <MainBar />
+      <header>
+        <MainBar />
+      </header>
       <main>
         <Outlet />
       </main>

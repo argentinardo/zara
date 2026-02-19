@@ -33,7 +33,7 @@ const Searcher = ({
       : `${resultsCount} RESULT${resultsCount !== 1 ? 'S' : ''}`
 
   return (
-    <div className="searcher">
+    <search className="searcher">
       <input
         type="search"
         className="searcher__input"
@@ -45,7 +45,7 @@ const Searcher = ({
       <p className="searcher__count">
         {countText}
       </p>
-    </div>
+    </search>
   )
 }
 

@@ -9,7 +9,7 @@ interface ColorSelectorProps {
 const ColorSelector = ({colorOption, action, selectedColor=""} : ColorSelectorProps) => {
   return (
     <div className="color-selector">
-        <div className="color-selector__text">color. pick your favourite.</div>
+        <p className="color-selector__text">color. pick your favourite.</p>
         <ul role="list" className="color-selector__tabs">
             {colorOption.map((item) => (
             <li className={`color-selector__tabs-tab${item.name === selectedColor ? ' color-selector__tabs-tab--active' : ''}`}

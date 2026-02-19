@@ -14,13 +14,13 @@ const MainBar = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="main-bar">
+    <nav className="main-bar" aria-label="Main navigation">
       <NavLink to="/">
         <img className="main-bar__logo" src={logo} alt="" />
       </NavLink>
       <NavLink className="main-bar__cart-badge" to="/cart">
         <img className="main-bar__cart-icon" src={cart.length > 0 ? cartFill : cartEmpty} />
-        <div className="main-bar__cart-text">{cart.length}</div>
+        <span className="main-bar__cart-text">{cart.length}</span>
       </NavLink>
       {isProductSpecs && (
         <div className="main-bar__footer">
@@ -32,7 +32,7 @@ const MainBar = () => {
           </button>
         </div>
       )}
-    </div>
+    </nav>
   )
 }
 export default MainBar    
