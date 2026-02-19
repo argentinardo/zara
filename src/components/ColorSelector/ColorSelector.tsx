@@ -12,9 +12,10 @@ const ColorSelector = ({colorOption, action, selectedColor=""} : ColorSelectorPr
         <div className="color-selector__text">color. pick your favourite.</div>
         <ul role="list" className="color-selector__tabs">
             {colorOption.map((item) => (
-            <li className='color-selector__tabs-tab' key={item.name}>
+            <li className={`color-selector__tabs-tab${item.name === selectedColor ? ' color-selector__tabs-tab--active' : ''}`}
+            key={item.name}>
                 <button
-                className='color-selector__tabs-btn'
+                className="color-selector__tabs-btn"
                 style={{ backgroundColor: item.hexCode }}
                 onClick={() => action(item.imageUrl, item.name)}
                 >

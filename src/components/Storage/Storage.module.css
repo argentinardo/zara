@@ -24,7 +24,8 @@
             border-right: var(--color-unselected) solid 1px;
             cursor: pointer;
             position: relative;
-            &:hover{
+            &:hover,
+            &.storage__tabs-btn--active{
                 &::after {
                     position: absolute;
                     top: -1px;

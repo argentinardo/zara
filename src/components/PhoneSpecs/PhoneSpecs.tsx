@@ -50,7 +50,6 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
         setSpecsData(data)
         const first = data.colorOptions[0]
         setColorUrl(first.imageUrl)
-        setSelectedColor(first.name)
       }
     })
   }, [id])
@@ -111,6 +110,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
           </div>
           <Storage
             storageOptions={storageOptions}
+            selectedStorage={selectedStorage}
             onSelectStorage={handleStorage}
           />
           <ColorSelector
@@ -118,7 +118,11 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
             colorOption={colorOptions}
             selectedColor={selectedColor}
           />
-          <MainButton full light action={handleAddToCart}>Añadir</MainButton>
+          <MainButton 
+            disabled={!selectedColor || !selectedStorage}
+            full
+            action={handleAddToCart}
+          >Añadir</MainButton>
         </div>
       </div>
       <div className="phone-specs__details">

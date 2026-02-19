@@ -5,11 +5,13 @@ interface MainButtonProps {
     full?: boolean
     action: MouseEventHandler<HTMLButtonElement> | undefined
     children: ReactNode
+    disabled? : boolean
 }
 
-const MainButton = ({ light, full, action, children }: MainButtonProps) => {
+const MainButton = ({ light, full, action, children, disabled }: MainButtonProps) => {
     return (
         <button
+            disabled= {disabled}
             type="button"
             onClick={action}
             className={
