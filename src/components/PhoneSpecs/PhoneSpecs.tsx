@@ -1,84 +1,25 @@
-import { useState, useEffect, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import type { Phone } from '@/types'
-import { productsService } from '@/services'
-import { CartContext } from '@/context/CartContext'
+import { usePhoneDetail } from '@/hooks/usePhoneDetail'
 import MainButton from '../MainButton'
 import Storage from '../Storage'
 import ColorSelector from '../ColorSelector'
 import SimilarItems from '../SimilarItems'
-
-const defaultPhone: Phone = {
-  id: '',
-  brand: '',
-  name: '',
-  description: '',
-  basePrice: 0,
-  rating: 0,
-  specs: {
-    screen: '',
-    resolution: '',
-    processor: '',
-    mainCamera: '',
-    selfieCamera: '',
-    battery: '',
-    os: '',
-    screenRefreshRate: '',
-  },
-  colorOptions: [],
-  storageOptions: [],
-  similarProducts: [],
-}
 
 interface PhoneSpecsProps {
   id: string
 }
 
 const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
-  const { addToCart } = useContext(CartContext)
-  const navigate = useNavigate()
-
-  const [specsData, setSpecsData] = useState<Phone>(defaultPhone)
-  const [colorUrl, setColorUrl] = useState('')
-  const [selectedColor, setSelectedColor] = useState('')
-  const [storagePrice, setStoragePrice] = useState(0)
-  const [selectedStorage, setSelectedStorage] = useState('')
-
-  useEffect(() => {
-    setSelectedColor('')
-    setSelectedStorage('')
-    setStoragePrice(0)
-    productsService.getProductById(id).then((data) => {
-      if (data) {
-        setSpecsData(data)
-        const first = data.colorOptions[0]
-        setColorUrl(first.imageUrl)
-      }
-    })
-  }, [id])
-
-  const handleColor = (imageUrl: string, colorName: string) => {
-    setColorUrl(imageUrl)
-    setSelectedColor(colorName)
-  }
-
-  const handleStorage = (price: number, capacity: string) => {
-    setStoragePrice(price)
-    setSelectedStorage(capacity)
-  }
-
-  const handleAddToCart = () => {
-    addToCart({
-      cartItemId: "",
-      brand: specsData.brand,
-      name: specsData.name,
-      price: storagePrice,
-      storage: selectedStorage,
-      color: selectedColor,
-      colorUrl: colorUrl,
-    })
-    navigate('/cart')
-  }
+  const {
+    phone,
+    displayedImageUrl,
+    selectedColor,
+    selectedStorage,
+    storagePrice,
+    canAddToCart,
+    handleColor,
+    handleStorage,
+    handleAddToCart,
+  } = usePhoneDetail(id)
 
   const {
     name,
@@ -98,9 +39,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
     colorOptions,
     storageOptions,
     similarProducts,
-  } = specsData
-
-  const displayedImageUrl = colorUrl || colorOptions[0]?.imageUrl || ''
+  } = phone
 
   return (
     <>
@@ -123,7 +62,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
             selectedColor={selectedColor}
           />
           <MainButton 
-            disabled={!selectedColor || !selectedStorage}
+            disabled={!canAddToCart}
             full
             action={handleAddToCart}
           >Añadir</MainButton>
@@ -181,7 +120,6 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
     </div>
     <SimilarItems similarProducts={similarProducts} />
   </>
-
   )
 }
 

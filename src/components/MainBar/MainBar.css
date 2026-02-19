@@ -27,6 +27,7 @@
     font-weight: 300;
     line-height: 1rem;
     height: 0.8125rem;
+    color: var(--color-main-900);
 }
 
 .main-bar__footer {
