@@ -37,7 +37,7 @@
     font-size: 1.25rem;
     font-weight: 300;
     line-height: calc(24/20);
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-10);
 }
 
 .phone-specs__details {
@@ -46,7 +46,7 @@
 
 .phone-specs__details-title {
     font-size: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--spacing-08);
 }
 
 .phone-specs__details-list {
@@ -66,7 +66,6 @@
     min-width: 21.75rem;
 }
 
-/* Tablet: 768px – 1199px */
 @media (max-width: 1199px) {
     .phone-specs {
         width: 100%;
@@ -74,7 +73,7 @@
 
     .phone-specs__hero {
         height: 26rem;
-        margin-bottom: 88px;
+        margin-bottom: var(--spacing-12);
     }
 
     .phone-specs__hero-panel,
@@ -91,7 +90,7 @@
     }
 
     .phone-specs__details {
-        margin-bottom: 5.5rem;
+        margin-bottom: var(--spacing-12);
     }
 
     .phone-specs__details-list-first {
@@ -99,15 +98,14 @@
     }
 }
 
-/* Mobile: < 768px */
 @media (max-width: 767px) {
     .phone-specs {
-        margin-bottom: 5rem;
+        margin-bottom: var(--spacing-11);
     }
     .phone-specs__hero {
         flex-direction: column;
         height: auto;
-        margin-bottom: 5rem;
+        margin-bottom: var(--spacing-11);
     }
 
     .phone-specs__hero-title {
@@ -116,13 +114,13 @@
 
     .phone-specs__hero-subtitle {
         font-size: 0.875rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: var(--spacing-08);
     }
 
     .phone-specs__hero-img {
         width: 100%;
         max-height: 20rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--spacing-06);
     }
 
     .phone-specs__hero-panel {

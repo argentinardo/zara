@@ -6,7 +6,7 @@
     font-size: 0.875rem;
     font-weight: 300;
     line-height: calc(17/14);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-06);
     text-transform: uppercase;
 }
 
@@ -19,8 +19,8 @@
     width: 1.5rem;
     background-color: var(--color-unselected);
     padding: 1px;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
+    margin-right: var(--spacing-04);
+    margin-bottom: var(--spacing-02);
     &.color-selector__tabs-tab--active {
       background-color: var(--color-black);
     }
@@ -46,6 +46,6 @@
 
 @media (max-width: 767px) {
     .color-selector {
-        margin-bottom: 2.5rem;
+        margin-bottom: var(--spacing-08);
     }
 }

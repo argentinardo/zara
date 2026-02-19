@@ -12,14 +12,14 @@ body {
 
 @media (max-width: 1199px) {
     body {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
+        padding-left: var(--spacing-08);
+        padding-right: var(--spacing-08);
     }
 }
 
 @media (max-width: 767px) {
     body {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: var(--spacing-04);
+        padding-right: var(--spacing-04);
     }
 }
