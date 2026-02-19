@@ -29,7 +29,7 @@ const mockItems: CartItem[] = [
 const renderCart = (cart: CartItem[] = mockItems, removeFromCart = vi.fn()) =>
   render(
     <CartContext.Provider value={{ cart, addToCart: vi.fn(), removeFromCart }}>
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Cart />
       </MemoryRouter>
     </CartContext.Provider>,

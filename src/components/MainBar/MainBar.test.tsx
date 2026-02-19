@@ -7,7 +7,7 @@ import type { CartItem } from '@/types'
 const renderMainBar = (initialRoute = '/', cart: CartItem[] = []) =>
   render(
     <CartContext.Provider value={{ cart, addToCart: vi.fn(), removeFromCart: vi.fn() }}>
-      <MemoryRouter initialEntries={[initialRoute]}>
+      <MemoryRouter initialEntries={[initialRoute]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <MainBar />
       </MemoryRouter>
     </CartContext.Provider>,

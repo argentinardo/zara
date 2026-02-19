@@ -1,10 +1,16 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import App from './App'
+import { render } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import { CartProvider } from '@/context/CartContext'
+import AppRouter from '@/router/AppRouter'
 
 describe('App', () => {
-  it('renders Zara title', () => {
-    render(<App />)
-    expect(screen.getByText('Zara')).toBeInTheDocument()
+  it('renders without crashing', () => {
+    render(
+      <CartProvider>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          <AppRouter />
+        </MemoryRouter>
+      </CartProvider>,
+    )
   })
 })

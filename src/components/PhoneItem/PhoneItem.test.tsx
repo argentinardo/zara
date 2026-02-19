@@ -13,7 +13,7 @@ const mockPhone: PhoneListItem = {
 
 const renderWithRouter = (phone: PhoneListItem) =>
   render(
-    <MemoryRouter>
+    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <PhoneItem phone={phone} />
     </MemoryRouter>,
   )
