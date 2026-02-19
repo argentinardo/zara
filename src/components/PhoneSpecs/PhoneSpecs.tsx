@@ -45,6 +45,9 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
   const [selectedStorage, setSelectedStorage] = useState('')
 
   useEffect(() => {
+    setSelectedColor('')
+    setSelectedStorage('')
+    setStoragePrice(0)
     productsService.getProductById(id).then((data) => {
       if (data) {
         setSpecsData(data)
@@ -100,6 +103,7 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
   const displayedImageUrl = colorUrl || colorOptions[0]?.imageUrl || ''
 
   return (
+    <>
     <div className="phone-specs">
       <div className="phone-specs__hero">
         <img className="phone-specs__hero-img" src={displayedImageUrl} alt={name} />
@@ -129,53 +133,55 @@ const PhoneSpecs = ({ id }: PhoneSpecsProps) => {
         <div className="phone-specs__details-title">SPECIFICATIONS</div>
         <div className="phone-specs__details-list">
           <div className="phone-specs__details-list-item">
-            <span>BRAND</span>
+            <span className="phone-specs__details-list-first">BRAND</span>
             {brand}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>NAME</span>
+            <span className="phone-specs__details-list-first">NAME</span>
             {name}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>DESCRIPTION</span>
+            <span className="phone-specs__details-list-first">DESCRIPTION</span>
             {description}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>SCREEN</span>
+            <span className="phone-specs__details-list-first">SCREEN</span>
             {screen}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>RESOLUTION</span>
+            <span className="phone-specs__details-list-first">RESOLUTION</span>
             {resolution}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>PROCESSOR</span>
+            <span className="phone-specs__details-list-first">PROCESSOR</span>
             {processor}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>MAIN CAMERA</span>
+            <span className="phone-specs__details-list-first">MAIN CAMERA</span>
             {mainCamera}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>SELFIE CAMERA</span>
+            <span className="phone-specs__details-list-first">SELFIE CAMERA</span>
             {selfieCamera}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>BATTERY</span>
+            <span className="phone-specs__details-list-first">BATTERY</span>
             {battery}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>OS</span>
+            <span className="phone-specs__details-list-first">OS</span>
             {os}
           </div>
           <div className="phone-specs__details-list-item">
-            <span>SCREEN REFRESH RATE</span>
+            <span className="phone-specs__details-list-first">SCREEN REFRESH RATE</span>
             {screenRefreshRate}
           </div>
         </div>
       </div>
-      <SimilarItems similarProducts={similarProducts} />
     </div>
+    <SimilarItems similarProducts={similarProducts} />
+  </>
+
   )
 }
 

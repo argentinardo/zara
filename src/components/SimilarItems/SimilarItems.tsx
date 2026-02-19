@@ -2,7 +2,9 @@ import type { SimilarProduct } from '@/types'
 import PhoneItem from '../PhoneItem'
 
 const MAX_SIMILAR = 6
-
+const handleScroll = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 interface SimilarItemsProps {
   similarProducts: SimilarProduct[]
 }
@@ -17,7 +19,12 @@ const SimilarItems = ({ similarProducts }: SimilarItemsProps) => {
       <h2 className="similar-items__title">SIMILAR ITEMS</h2>
       <div className="similar-items__slider">
         {items.map((product) => (
-          <PhoneItem key={product.id} phone={product} />
+          <div
+            className="similar-items__slider-item"
+            onClick={()=>handleScroll()}
+          >
+            <PhoneItem key={product.id} phone={product} />
+          </div>
         ))}
       </div>
     </section>

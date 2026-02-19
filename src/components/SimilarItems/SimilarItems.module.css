@@ -1,20 +1,27 @@
 .similar-items {
   margin-top: 2rem;
+  margin-left: 16.25rem;
 }
 
 .similar-items__title {
   font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
 }
 
 .similar-items__slider {
+
   display: flex;
-  gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.5rem;
+}
+
+.similar-items__slider-item {
+  height: 21.625rem;
+  padding-top: 1px;
+  width: 21.5rem;
+  padding-left: 1px;
 }
 
 .similar-items__slider > * {
