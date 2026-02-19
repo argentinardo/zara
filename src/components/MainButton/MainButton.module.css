@@ -10,6 +10,8 @@
     text-transform: uppercase;
     min-width: 7.25rem;
     cursor: pointer;
+    text-decoration: none;
+    width: 16.25rem;
     &.main-button--full {
         width: 100%;
     }

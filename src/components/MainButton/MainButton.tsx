@@ -3,7 +3,7 @@ import { MouseEventHandler, ReactNode } from "react"
 interface MainButtonProps {
     light?: boolean
     full?: boolean
-    action: MouseEventHandler<HTMLButtonElement> | undefined
+    action?: MouseEventHandler<HTMLButtonElement> | undefined
     children: ReactNode
     disabled? : boolean
 }
