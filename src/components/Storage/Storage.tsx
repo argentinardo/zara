@@ -18,6 +18,7 @@ const StorageTabs = ({ storageOptions, selectedStorage, onSelectStorage }: Stora
                         className={`storage__tabs-btn${item.capacity === selectedStorage ? ' storage__tabs-btn--active' : ''}`}
                         type="button"
                         onClick={() => onSelectStorage(item.price, item.capacity)}
+                        aria-label={`Select ${item.capacity} storage`}
                     >
                         {item.capacity}
                     </button>

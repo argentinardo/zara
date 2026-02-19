@@ -18,6 +18,7 @@ const ColorSelector = ({colorOption, action, selectedColor=""} : ColorSelectorPr
                 className="color-selector__tabs-btn"
                 style={{ backgroundColor: item.hexCode }}
                 onClick={() => action(item.imageUrl, item.name)}
+                aria-label={`Select color ${item.name}`}
                 >
                 </button>
             </li>

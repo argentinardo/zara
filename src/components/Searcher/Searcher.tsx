@@ -38,6 +38,7 @@ const Searcher = ({
         type="search"
         className="searcher__input"
         placeholder="Search for a smartphone..."
+        aria-label="Search for a smartphone"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
