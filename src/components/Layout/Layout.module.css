@@ -6,6 +6,20 @@ body {
     max-width: 113.75rem;
     padding-left: 3.125rem;
     padding-right: 3.125rem;
-    margin:auto;
+    margin: auto;
     font-weight: 300;
+}
+
+@media (max-width: 1199px) {
+    body {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

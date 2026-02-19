@@ -32,3 +32,17 @@
     --grid-columns: 5;
     --grid-gap: var(--spacing-04);
 }
+
+/* Tablet: 768px – 1199px */
+@media (max-width: 1199px) {
+    :root {
+        --grid-columns: 2;
+    }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+    :root {
+        --grid-columns: 1;
+    }
+}

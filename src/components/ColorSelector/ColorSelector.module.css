@@ -16,7 +16,7 @@
     width: 1.5rem;
     background-color: var(--color-unselected);
     padding: 1px;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     margin-bottom: 0.5rem;
     &.color-selector__tabs-tab--active {
       background-color: var(--color-black);
@@ -31,8 +31,14 @@
   }
   
   .color-selector__name {
-    font-size: .75rem;
+    font-size: 0.75rem;
     text-transform: capitalize;
   }
+  @media (max-width: 1199px) {
+    .color-selector__text {
+      font-size: 0.75rem;
+    }
+  }
+  @media (max-width: 767px) {}
 }
 
