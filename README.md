@@ -9,6 +9,7 @@ Aplicacion web para la visualizacion, busqueda y gestion de un catalogo de telef
 
 ## Tecnologias
 
+- **Node 18**
 - **React 18** + **TypeScript**
 - **Vite**
 - **React Router v6**
